@@ -93,17 +93,6 @@ public class RedesController
         times = lines[last_position].split(identifier);
         last_position = times.length - 1;
         System.out.println(times[last_position]);
-
-        // for (String exit : lines)
-        // {
-        //     exit = exit.toLowerCase();
-        //     if (exit.contains(identifier))
-        //     {
-        //         times = exit.split(" ");
-        //         l = times.length;
-        //         System.out.println(times[l - 1]);
-        //     }
-        // }
     }
 
 
