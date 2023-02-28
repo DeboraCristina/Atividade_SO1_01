@@ -27,10 +27,10 @@ public class RedesController
 
         if (is_linux())
         {
-            show_ip(cmd_unix, "default", "inet");
+            show_ip(cmd_unix, "inet");
         }
         else if (is_windows())
-            show_ip(cmd_win, "adapter", "ipv4");
+            show_ip(cmd_win, "ipv4");
     }
 
 
@@ -61,16 +61,19 @@ public class RedesController
     }
 
 
-    private void show_ip(String cmd, String name_adapter, String ipv4_identifier)
+    private void show_ip(String cmd, String ipv4_identifier)
     {
         String name = null;
         String ipv4;
         String exit_lines = callProcess(cmd);
         String[] lines = exit_lines.split("\n");
+        char startLine;
+
         for (String exit : lines)
         {
             exit = exit.toLowerCase();
-            if (exit.contains(name_adapter))
+            startLine = exit.charAt(0);
+            if (startLine != ' ')
                 name = exit;
             if (name != null && exit.contains(ipv4_identifier))
             {
