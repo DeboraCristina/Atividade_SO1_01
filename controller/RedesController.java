@@ -72,15 +72,22 @@ public class RedesController
         for (String exit : lines)
         {
             exit = exit.toLowerCase();
-            startLine = exit.charAt(0);
-            if (startLine != ' ')
-                name = exit;
-            if (name != null && exit.contains(ipv4_identifier))
+            try
             {
-                ipv4 = exit;
-                System.out.println(name);
-                System.out.println(ipv4);
-                name = null;
+                startLine = exit.charAt(0);
+                if (startLine != ' ')
+                    name = exit;
+                if (name != null && exit.contains(ipv4_identifier))
+                {
+                    ipv4 = exit;
+                    System.out.println(name);
+                    System.out.println(ipv4);
+                    name = null;
+                }
+            }
+            catch (Exception e)
+            {
+                //
             }
         }
     }
